@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Image Steganography </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color:violet
+    }
+
+    .container {
+    padding: 25px;
+  }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .intro {
+      border-radius: 10px;
+      border: 1px solid #0b0101;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    input[type="file"],
+    textarea {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      background-color: #370d98;
+      border-color: #007bff;
+      color: #f7f1f1;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+    #preview img,
+    #output img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h1>Image Steganography</h1>
+
+          
+          
+
+            <h3>Original Image</h3>
+            <div class="mb-3">
+              <input type="file" class="form-control" id="imageInput" onchange="previewImage(event)">
+            </div>
+            <div id="preview" class="text-center"></div>
+
+            <h2 class="mt-4">Encode</h2>
+            <div class="mb-3">
+              <textarea id="messageInput" class="form-control" placeholder="Enter secret message"></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="encode()">Encode Message</button>
+
+            <h2 class="mt-4">Decode</h2>
+            <div class="mb-3">
+              <input type="file" class="form-control" id="encodedImageInput">
+            </div>
+            <button class="btn btn-primary" onclick="decode()">Decode Message</button>
+
+            <h2 class="mt-4">Output</h2>
+            <div id="output">
+              <div class="mb-3">
+                <textarea id="decodedText" class="form-control" placeholder="Decoded text"></textarea>
+              </div>
+              <button class="btn btn-primary" onclick="copyText()">Copy Text</button>
+            </div>
+
+            <button id="downloadButton" class="btn btn-primary mt-4">Download Encoded Image</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/encode.js"></script>
+  <script src="./scripts/decode.js"></script>
+  <script src="./scripts/helpers.js"></script>
+</body>
+</html>
